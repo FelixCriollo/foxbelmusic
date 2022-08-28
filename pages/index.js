@@ -1,8 +1,10 @@
+import parse from 'html-react-parser';
 import Head from 'next/head'
 import { CardItem } from '../components/card/cardItem'
+import { InfoCard } from '../components/card/InfoCard/InfoCard'
 import { CardContainer, Header2} from '../style-components'
 
-export default function Home({ topAlbums }) {
+export default function Home({ topAlbums, artist, embebido }) {
 
   console.log(topAlbums)
 
@@ -15,6 +17,8 @@ export default function Home({ topAlbums }) {
       </Head>
 
       <main>
+        <InfoCard topAlbum={topAlbums[0]} artist={artist} />
+        
         <Header2 color='#E86060' weight="bold">Resultados</Header2>
 
         <CardContainer>
@@ -24,6 +28,9 @@ export default function Home({ topAlbums }) {
             </li>
           ))}
         </CardContainer>
+        {
+          parse(embebido.html)
+        }
       </main>
     </div>
   )
@@ -35,6 +42,10 @@ export async function getServerSideProps() {
   console.log(data)
 
   return {
-    props: {topAlbums: data.topAlbums}
+    props: {
+      topAlbums: data.topAlbums,
+      artist: data.artist,
+      embebido: data.embebido
+    }
   }
 }
