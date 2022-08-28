@@ -1,13 +1,16 @@
 import { GlobalStyle } from "../style-components"
 import { Layout } from "../components/layout"
+import { PlayMusicProvider } from "../context/playMusicContext"
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <PlayMusicProvider>
+        <Layout>
+            <Component {...pageProps} />
+        </Layout>
+      </PlayMusicProvider>
     </>
   )
 }

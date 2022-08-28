@@ -29,8 +29,7 @@ export default function Home({ topAlbums, artist }) {
           ))}
         </CardContainer>
 
-        {/* <MusicPlayer>{parse(embebido.html)}</MusicPlayer> */}
-        <MusicPlayer {...topAlbums}/>
+        <MusicPlayer />
       </main>
     </div>
   )

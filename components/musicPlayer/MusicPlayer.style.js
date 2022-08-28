@@ -10,3 +10,16 @@ export const MusicPlayerContainer = styled.div`
   background: #000000cc;
   opacity: .99;
 `
+
+export const MusicPlayerButton = styled.button`
+  background: #fff;
+  position: absolute;
+  border: none;
+  right: .75em;
+  padding: .45em;
+  border-radius: .4em;
+
+  &:hover {
+    background: #E86060cc;
+  }
+`

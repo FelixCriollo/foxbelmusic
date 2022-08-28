@@ -1,3 +1,4 @@
+import { usePlayMusicContext } from "../../../context/playMusicContext";
 import { 
   ButtonPrimary, 
   ButtonSecondary, 
@@ -14,10 +15,15 @@ import {
 } from "./InfoCard.style";
 
 export function InfoCard({artist, topAlbum}) {
+  const { setPlayMusic } = usePlayMusicContext()
   
   return (
     <InfoCardContainer bgImg={topAlbum.cover_xl}>
-      <InfoCardImg src={topAlbum.cover_medium} alt={topAlbum.title} />
+      <InfoCardImg 
+        src={topAlbum.cover_medium} 
+        alt={topAlbum.title}
+        onClick={() => setPlayMusic(topAlbum.id, topAlbum.type, true)} 
+      />
 
       <InfoCardContent>
         <Header2 color="#fff" weight={"bold"}>{topAlbum.title}</Header2>
@@ -30,7 +36,11 @@ export function InfoCard({artist, topAlbum}) {
         <Paragraph color="#fff">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis optio, asperiores consectetur molestias unde quibusdam laudantium praesentium nam vitae labore! Aspernatur architecto dolores adipisci, excepturi voluptates ratione deleniti suscipit molestiae?</Paragraph>
 
         <InfoCardButtons>
-          <ButtonPrimary>Reproducir</ButtonPrimary>
+          <ButtonPrimary
+            onClick={() => setPlayMusic(topAlbum.id, topAlbum.type, true)}
+          >
+              Reproducir
+          </ButtonPrimary>
           <ButtonSecondary>Seguir</ButtonSecondary>
         </InfoCardButtons>
       </InfoCardContent>
