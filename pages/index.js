@@ -1,10 +1,10 @@
-import parse from 'html-react-parser';
 import Head from 'next/head'
 import { CardItem } from '../components/card/cardItem'
 import { InfoCard } from '../components/card/InfoCard/InfoCard'
+import { MusicPlayer } from '../components/musicPlayer';
 import { CardContainer, Header2} from '../style-components'
 
-export default function Home({ topAlbums, artist, embebido }) {
+export default function Home({ topAlbums, artist }) {
 
   console.log(topAlbums)
 
@@ -28,9 +28,9 @@ export default function Home({ topAlbums, artist, embebido }) {
             </li>
           ))}
         </CardContainer>
-        {
-          parse(embebido.html)
-        }
+
+        {/* <MusicPlayer>{parse(embebido.html)}</MusicPlayer> */}
+        <MusicPlayer {...topAlbums}/>
       </main>
     </div>
   )
@@ -44,8 +44,7 @@ export async function getServerSideProps() {
   return {
     props: {
       topAlbums: data.topAlbums,
-      artist: data.artist,
-      embebido: data.embebido
+      artist: data.artist
     }
   }
 }
