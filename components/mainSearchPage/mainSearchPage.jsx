@@ -13,7 +13,7 @@ export function MainSearchPage() {
 
   useEffect(() => {
     const SearchedAPI = async () => {
-      const res = await fetch(`http://localhost:4000/api/search/${query}`);
+      const res = await fetch(`http://localhost:3000/api/search/${query}`);
       const data = await res.json()
       setLoading(false)
       setSearch(data)
@@ -31,7 +31,7 @@ export function MainSearchPage() {
     return (
       <>
         {
-          artists.data.length
+          artists.length
            ?
             (
             <>
@@ -39,7 +39,7 @@ export function MainSearchPage() {
 
               <ArtistContainer>
                 {
-                  artists.data.map(artist => (
+                  artists.map(artist => (
                     <li key={artist.id}>
                       <CardArtist 
                         picture={artist.picture_medium} 
@@ -56,7 +56,7 @@ export function MainSearchPage() {
         }
   
         {
-          tracks.data.length 
+          tracks.length 
             ?
               (
               <>
@@ -64,7 +64,7 @@ export function MainSearchPage() {
                 <CardContainer>
                   {
                     
-                    (tracks.data.map(track => (
+                    (tracks.map(track => (
                     <li key={track.id}>
                       <CardItem 
                         img={track.album.cover_medium}

@@ -21,6 +21,7 @@ export const Header5 = styled.h5`
 export const NavLink = styled.p`
   font-size: 1rem;
   color: #fff;
+  cursor: pointer;
 
   &:hover {
     color: #E86060;
