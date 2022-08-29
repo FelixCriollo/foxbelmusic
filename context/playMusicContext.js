@@ -22,8 +22,6 @@ const reducer = (state, action) => {
 export const PlayMusicProvider = ({children}) => {
   const [state, dispatch] = useReducer(reducer, inictialsState)
 
-  console.log(state)
-
   const setPlayMusic = (type, id, play) => {
     dispatch({type: PLAY_MUSIC, payload: {type, id, play}})
   }

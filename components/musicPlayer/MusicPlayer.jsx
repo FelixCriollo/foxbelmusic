@@ -5,8 +5,6 @@ export function MusicPlayer(props) {
   const { state, setPlayMusic } = usePlayMusicContext()
   const { play, id, type } = state
 
-  console.log(play, id, type);
-
   if(play) {
     return (
       <MusicPlayerContainer>

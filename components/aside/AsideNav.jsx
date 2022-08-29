@@ -1,11 +1,16 @@
 import { Header2, NavLink } from '../../style-components'
 import { AsideNavStyle, NavStyle } from "./AsideNav.style"
+import Link from 'next/link'
 
 export const AsideNav = () => {
   return (
     <>
       <AsideNavStyle>
-        <img src="/logo.png" alt="PepeLaRana" />
+        <Link href="/">
+          <a>
+            <img src="/logo.png" alt="PepeLaRana" />
+          </a>
+        </Link>
 
         <NavStyle>
           <Header2 color="#ffffff" weight="bold">Playlist</Header2>
